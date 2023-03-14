@@ -1,13 +1,14 @@
 import React from "react";
 
-export const Card = () => {
+export const Card = (props) => {
     return (
-    <div className="card" style="width: 18rem;">
-            <img src="..." className="card-img-top" alt="..."/>
+    
+    <div className="card cardSize" >
+            <img src={props.source} className="card-img-top" alt="..."/>
         <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Details</p>
-            <a href="#" className="btn btn-primary">Learn more!</a>
+            <h5 className="card-title">{props.title}</h5>
+            <p className="card-text">{props.details}</p>
+            <a href={props.href} className="btn btn-primary">Learn more!</a>
         </div>
     </div>
      );
