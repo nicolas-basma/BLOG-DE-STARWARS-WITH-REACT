@@ -1,10 +1,10 @@
 import React from "react";
-import { contextProvider } from "./store/Contexto";
-import useStore from "./store/Contexto";
+import { ContextProvider } from "./store/Contexto.jsx";
+import useStore from "./store/Contexto.jsx";
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import ScrollToTop from "./component/scrollToTop";
 
-// import { Home } from "./views/home";
+import { Home } from "./views/home";
 // import { Demo } from "./views/demo";
 // import { Single } from "./views/single";
 // import injectContext from "./store/appContext";
@@ -20,7 +20,9 @@ const Layout = () => {
 
 	return (
 		<div>
-			
+			<ContextProvider>
+				<Home/>
+			</ContextProvider>
 		</div>
 	);
 };
