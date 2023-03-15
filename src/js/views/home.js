@@ -17,17 +17,17 @@ export const Home = () => {
     <>
       <div className="characterContainer">
 		{ Characters 
-		? Characters.map((character)=> <div key={character.uid}><Card name={character.name}/></div>)
+		? Characters.map((character)=> <Card key={character.uid} name={character.name}/>)
 		: null}
 			</div>
 			<div className="vehiclesContainer">
 				{ Vehicles
-				? Vehicles.map((vehicle) => <div key={vehicle.uid}><Card name={vehicle.name}/></div>)
+				? Vehicles.map((vehicle) => <Card  key={vehicle.uid} name={vehicle.name}/>)
 			:null }
 			</div>
 			<div className="planetsContainer">
 				{ Planets
-				? Planets.map((planet) => <div key={planet.uid}><Card name={planet.name}/></div>)
+				? Planets.map((planet) => <Card key={planet.uid} name={planet.name}/>)
 			:null}
 			</div>
       <div className="text-center mt-5">

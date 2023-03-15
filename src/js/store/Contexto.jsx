@@ -1,64 +1,54 @@
-import  React, { createContext, useContext, useState, useEffect} from "react";
-
-
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const Context = createContext();
 
+const getPeople = async () => {
+  return fetch("https://www.swapi.tech/api/people/")
+    .then((res) => res.json())
+    .then((res) => res.results);
+};
+const getVehicle = async () => {
+  return fetch("https://www.swapi.tech/api/vehicles/")
+    .then((res) => res.json())
+    .then((res) => res.results);
+};
 
-const People = () => {
-    return (
-        fetch("https://www.swapi.tech/api/people/")
-        .then(res => res.json())
-        )
-    }
-const Vehicle = () => {
-    return (
-        fetch("https://www.swapi.tech/api/vehicles/")
-        .then(res => res.json())
-    )
-}
+const getPlanet = async () => {
+  return fetch("https://www.swapi.tech/api/planets/")
+    .then((res) => res.json())
+    .then((res) => res.results);
+};
 
-const Planet = () => {
-    return (
-        fetch("https://www.swapi.tech/api/planets/")
-        .then(res => res.json())
-    )
-}
-    
-    export  const ContextProvider = ({children}) => {
-        
-        const [Characters, setCharacters] = useState(false)
-        const [Vehicles, setVehicles] = useState(false)
-        const [Planets, setPlanets] = useState(false)
-        
-        
-        useEffect(() => {
-            new Promise((resolve) => resolve(People()))
-                .then(res => setCharacters(res.results))
-                .catch(err => console.log(err));
+export const ContextProvider = ({ children }) => {
+  const [Characters, setCharacters] = useState([]);
+  const [Vehicles, setVehicles] = useState([]);
+  const [Planets, setPlanets] = useState([]);
 
-            new Promise((resolve) => resolve(Vehicle()))
-            .then(res => setVehicles(res.results))
-            .catch(err => console.log(err));
+  useEffect(() => {
+    getPeople()
+      .then((res) => setCharacters(res))
+      .catch((err) => console.log(err));
 
-            new Promise((resolve) => resolve(Planet()))
-            .then(res => setPlanets(res.results))
-            .catch(err => console.log(err))
+    getVehicle()
+      .then((res) => setVehicles(res))
+      .catch((err) => console.log(err));
 
-            
-    },[])
-    
-    return (
-        <>
-        <Context.Provider value={{Characters, Vehicles, Planets}}>
-            {children}
-        </Context.Provider>
-        </>
-    )
-}
+    getPlanet()
+      .then((res) => setPlanets(res))
+      .catch((err) => console.log(err));
+  }, []);
 
-const useStore = () =>{
-    return useContext(Context)
-}
+  return (
+    <>
+      <Context.Provider value={{ Characters, Vehicles, Planets }}>
+        {children}
+      </Context.Provider>
+    </>
+  );
+};
+
+const useStore = () => {
+  return useContext(Context);
+};
 
 export default useStore;

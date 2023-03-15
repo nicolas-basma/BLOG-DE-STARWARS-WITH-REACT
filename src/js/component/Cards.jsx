@@ -5,9 +5,9 @@ const Card = (props) => {
     
     
     return (
-        <>
-        <h1 key={props.key}>{props.name}</h1>
-        </>
+        
+        <h1>{props.name}</h1>
+    
     )
 }
 
