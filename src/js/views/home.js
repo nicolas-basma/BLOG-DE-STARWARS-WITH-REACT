@@ -9,17 +9,27 @@ export const Home = () => {
 
 
 
-	const Characters  = useStore();
+	const {Characters, Vehicles, Planets}  = useStore();
 
-	console.log(Characters)
+
 
   return (
     <>
-      <div className="characterContainer">{ Characters ? Characters.map((character)=>{
-			return (
-				<div key={character.uid}><Card name={character.name}/></div>
-			)
-			}) : null}</div>
+      <div className="characterContainer">
+		{ Characters 
+		? Characters.map((character)=> <div key={character.uid}><Card name={character.name}/></div>)
+		: null}
+			</div>
+			<div className="vehiclesContainer">
+				{ Vehicles
+				? Vehicles.map((vehicle) => <div key={vehicle.uid}><Card name={vehicle.name}/></div>)
+			:null }
+			</div>
+			<div className="planetsContainer">
+				{ Planets
+				? Planets.map((planet) => <div key={planet.uid}><Card name={planet.name}/></div>)
+			:null}
+			</div>
       <div className="text-center mt-5">
         <h1>Hello Rigo!</h1>
         <p>

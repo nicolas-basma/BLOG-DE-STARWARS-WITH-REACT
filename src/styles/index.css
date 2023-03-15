@@ -1,3 +1,7 @@
 /* 
     General Styles
 */
+.characterContainer, .vehiclesContainer, .planetsContainer{
+    display: flex;
+    flex-direction: row;
+}
