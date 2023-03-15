@@ -1,5 +1,7 @@
 import React from "react";
 import { ContextProvider } from "./store/Contexto.jsx";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/routes.jsx";
 import useStore from "./store/Contexto.jsx";
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import ScrollToTop from "./component/scrollToTop";
@@ -20,8 +22,11 @@ const Layout = () => {
 
 	return (
 		<div>
+			
 			<ContextProvider>
-				<Home/>
+				<RouterProvider router={router}>
+					
+				</RouterProvider>
 			</ContextProvider>
 		</div>
 	);
