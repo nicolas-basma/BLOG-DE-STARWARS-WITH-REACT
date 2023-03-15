@@ -1,6 +1,6 @@
 import React from "react";
 import useStore from "../store/Contexto.jsx";
-import Card from "../component/Cards.jsx";
+import Cards from "../component/Cards.jsx";
 
 
 
@@ -9,7 +9,7 @@ export const Home = () => {
 
 
 
-	const {Characters, Vehicles, Planets}  = useStore();
+	const {Characters, Vehicles, Planets, singleCharacter}  = useStore();
 
 
 
@@ -17,17 +17,17 @@ export const Home = () => {
     <>
       <div className="characterContainer">
 		{ Characters 
-		? Characters.map((character)=> <Card key={character.uid} name={character.name}/>)
+		? Characters.map((character)=> <Cards key={character.uid} name={character.name} description={singleCharacter.description}/>)
 		: null}
 			</div>
 			<div className="vehiclesContainer">
 				{ Vehicles
-				? Vehicles.map((vehicle) => <Card  key={vehicle.uid} name={vehicle.name}/>)
+				? Vehicles.map((vehicle) => <Cards  key={vehicle.uid} name={vehicle.name}/>)
 			:null }
 			</div>
 			<div className="planetsContainer">
 				{ Planets
-				? Planets.map((planet) => <Card key={planet.uid} name={planet.name}/>)
+				? Planets.map((planet) => <Cards key={planet.uid} name={planet.name}/>)
 			:null}
 			</div>
       <div className="text-center mt-5">
