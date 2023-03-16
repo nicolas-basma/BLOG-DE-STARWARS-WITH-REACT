@@ -5,7 +5,13 @@
     display: flex;
     flex-direction: row;
 }
-
+.cardSize{
+    width: 18rem;
+}
+.logo{
+    width: 6rem;
+    height: 6rem;
+}
 .cardSize{
     width: 18rem;
 }
