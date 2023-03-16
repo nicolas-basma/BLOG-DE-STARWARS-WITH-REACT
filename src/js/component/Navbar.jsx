@@ -1,17 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   return (
     <>
     <div className="container-fluid">
       <nav className="navbar navbar-light bg-light mb-3">
-        <a className="navbar-brand" href="#">
+        <NavLink className="navbar-brand" href="#">
           <img
             className="logo"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLFQDCjUKaJeQFoZOv2WdbvdsZO5o1S4gfMbn_8OSEXNb7c3GccxsKmTX5yC9FvOHeJ5M&usqp=CAU"
           />
-        </a>
+        </NavLink>
         <div className="btn-group">
           <button
             type="button"

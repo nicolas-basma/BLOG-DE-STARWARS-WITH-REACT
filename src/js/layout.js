@@ -23,8 +23,8 @@ const Layout = () => {
 		<div>
 			
 			<ContextProvider>
-				<Navbar/>
 				<RouterProvider router={router}>
+				<Navbar/>
 					
 				</RouterProvider>
 

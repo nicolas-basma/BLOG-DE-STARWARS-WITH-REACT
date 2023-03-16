@@ -7,13 +7,21 @@ import { Bla } from "../component/Test.jsx";
 export const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Home/>
-	},
-	{
-		path: '/Bla',
-		element: <Bla/>
+		element: <Navbar/>,
+		children: [
+			{
+				path: '/',
+				element: <Home/>
+			},
+			{
+				path: '/Bla',
+				element: <Bla/>
+		
+			}
 
-	}
+		]
+	},
+
 ])
 
 
