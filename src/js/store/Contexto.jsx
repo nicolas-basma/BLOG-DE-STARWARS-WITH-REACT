@@ -20,23 +20,19 @@ const getPlanet = async () => {
 };
 
 export const ContextProvider = ({ children }) => {
+  
+  
   const [Characters, setCharacters] = useState([]);
   const [Vehicles, setVehicles] = useState([]);
   const [Planets, setPlanets] = useState([]);
+  const [urlCharacter, setUrlCharacter] = useState([]);
   const [singleCharacter, setSingleCharacter] = useState([]);
 
   useEffect(() => {
     getPeople()
-      .then((res) => {
-         setCharacters(res)
-        fetch(`https://www.swapi.tech/api/people/1`)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          setSingleCharacter(data);
-        })
-        .catch((err) => console.log(err))
-      });
+      .then((res) => setCharacters(res))
+      .catch((err) => console.log(err));
+       
       
     getVehicle()
       .then((res) => setVehicles(res))
@@ -46,6 +42,21 @@ export const ContextProvider = ({ children }) => {
       .then((res) => setPlanets(res))
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    const eachCharacter =  Characters.map((personaje) => personaje.url);
+    setUrlCharacter(eachCharacter);
+  },[Characters])
+
+  useEffect(() => {
+    urlCharacter.map( async (url) => {
+      return fetch(`${url}`)
+        .then((res) => res.json())
+        .then((data) => setSingleCharacter(data))
+        .catch((err) => console.log(err))
+    })
+
+  },[urlCharacter])
 
   return (
     <>
