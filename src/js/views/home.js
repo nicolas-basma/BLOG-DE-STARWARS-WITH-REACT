@@ -9,20 +9,15 @@ export const Home = () => {
 
 
 
-	const {Characters, Vehicles, Planets, singleCharacter}  = useStore();
+	const {Vehicles, Planets, singleCharacter}  = useStore();
 
-	console.log(`single caracter`, singleCharacter);
+	console.log(`single caracter`, singleCharacter)
 
-	let ejemplo = singleCharacter?.result ? singleCharacter.result.properties.gender : null;
-
-	// let ejemplo = singleCharacter.map(())
-
-	console.log(`ejemplo`, ejemplo)
   return (
     <>
       <div className="characterContainer">
-		{ Characters 
-		? Characters.map((character)=> <Cards key={character.uid} name={character.name} description={ejemplo}/>)
+		{ singleCharacter
+		? singleCharacter.map((character)=> <Cards key={character.result.uid} name={character.result.properties.name} eyes={character.result.properties.eye_color} img={character.result.uid}/>)
 		: null}
 			</div>
 			<div className="vehiclesContainer">

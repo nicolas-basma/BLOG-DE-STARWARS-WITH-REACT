@@ -28,6 +28,8 @@ export const ContextProvider = ({ children }) => {
   const [urlCharacter, setUrlCharacter] = useState([]);
   const [singleCharacter, setSingleCharacter] = useState([]);
 
+  let arrayCaracteristicas = [];
+
   useEffect(() => {
     getPeople()
       .then((res) => setCharacters(res))
@@ -52,15 +54,17 @@ export const ContextProvider = ({ children }) => {
     urlCharacter.map( async (url) => {
       return fetch(`${url}`)
         .then((res) => res.json())
-        .then((data) => setSingleCharacter(data))
+        .then((data) => { arrayCaracteristicas = arrayCaracteristicas.concat(data)
+          console.log(`array`, arrayCaracteristicas)
+        })
+        .then(() => setSingleCharacter(arrayCaracteristicas))
         .catch((err) => console.log(err))
-    })
+      })
 
   },[urlCharacter])
-
   return (
     <>
-      <Context.Provider value={{ Characters, Vehicles, Planets, singleCharacter }}>
+      <Context.Provider value={{ Characters, Vehicles, Planets, singleCharacter}}>
         {children}
       </Context.Provider>
     </>
