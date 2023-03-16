@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <>
     <div className="container-fluid">
-      <nav className="navbar navbar-light bg-light mb-3">
+    <nav className="navbar navbar-dark bg-dark">
         <a className="navbar-brand" href="#">
           <img
             className="logo"
@@ -15,13 +14,13 @@ export const Navbar = () => {
         <div className="btn-group">
           <button
             type="button"
-            className="btn btn-primary dropdown-toggle p-2"
+            className="btn btn-dark dropdown-toggle"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Action
           </button>
-          <ul className="dropdown-menu">
+          <ul className="dropdown-menu dropdown-menu-dark">
             <li>
               <a className="dropdown-item" href="#">
                 Action
@@ -49,6 +48,5 @@ export const Navbar = () => {
         </div>
       </nav>
       </div>
-    </>
   );
 };
