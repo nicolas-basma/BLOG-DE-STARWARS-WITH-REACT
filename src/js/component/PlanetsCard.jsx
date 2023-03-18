@@ -10,7 +10,7 @@ import React from "react";
             <p className="card-text">Population: {props.population}</p>
             <p className="card-text">Terrain: {props.terrain}</p>
             <a href={props.url} className="btn btn-primary">Learn more!</a>
-            <i class="fa-regular fa-heart"></i>
+            <i className="far fa-heart"></i>
         </div>
     </div>
      );

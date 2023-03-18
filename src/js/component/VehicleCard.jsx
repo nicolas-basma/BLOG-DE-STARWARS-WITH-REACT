@@ -8,9 +8,9 @@ import React from "react";
         <div className="card-body">
             <h5 className="card-title">{props.name}</h5>
             <p className="card-text">Model: {props.model}</p>
-            <p className="card-text">Vehicle class: {props.vehicleClass}</p>
+            <p className="card-text">Vehicle class: {props.vehicle_class}</p>
             <a href={props.url} className="btn btn-primary">Learn more!</a>
-            <i class="fa-regular fa-heart"></i>
+            <i className="far fa-heart"></i>
         </div>
     </div>
      );
