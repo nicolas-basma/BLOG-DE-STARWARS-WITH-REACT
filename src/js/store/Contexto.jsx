@@ -2,6 +2,15 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 const Context = createContext();
 
+const multipleFetch = async (listaResult) => {
+  return await Promise.all(
+    listaResult.map((item) =>{
+      return fetch(item.url)
+            .then((res) => res.json())
+    })
+  )
+}
+
 const getPeople = async () => {
   return fetch("https://www.swapi.tech/api/people/")
     .then((res) => res.json())
@@ -26,10 +35,15 @@ export const ContextProvider = ({ children }) => {
   const [Characters, setCharacters] = useState([]);
   const [Vehicles, setVehicles] = useState([]);
   const [Planets, setPlanets] = useState([]);
+  const [listaPersonaje, setListaPersonaje] = useState([]);
 
   useEffect(() => {
     getPeople()
-      .then((res) => setCharacters(res))
+      .then((res) => {
+        setCharacters(res)
+        return multipleFetch(res);
+      })
+      .then((data) => setListaPersonaje(data))
       .catch((err) => console.log(err));
        
     getVehicle()
@@ -44,7 +58,7 @@ export const ContextProvider = ({ children }) => {
 
   return (
     <>
-      <Context.Provider value={{ Characters, Vehicles, Planets }}>
+      <Context.Provider value={{ Characters, Vehicles, Planets, listaPersonaje }}>
         {children}
       </Context.Provider>
     </>

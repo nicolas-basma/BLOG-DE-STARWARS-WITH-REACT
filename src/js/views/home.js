@@ -9,28 +9,12 @@ export const Home = () => {
 
 	const {Characters, Vehicles, Planets}  = useStore();
 
-	const [ singleCharacter, setSingleCharacter] = useState([])
-	
-useEffect(() => {
-
-	Characters.map((character) => {
-		return (
-			fetch(`https://www.swapi.tech/api/people/${character.uid}`)
-			.then((res) => res.json())
-			.then((data) => setSingleCharacter(data))
-		)
-	})
-	setSingleCharacter(c)
-},[Characters])
-
-
-
 
   return (
     <>
       <div className="characterContainer">
 		{ Characters
-		? Characters.map((character)=> <CharactersCard key={character.uid} name={character.name}  img={character.uid}/>)
+		? Characters.map((character)=> <CharactersCard key={character.uid} name={character.name}  id={character.uid}/>)
 		: null}
 			</div>
 			<div className="vehiclesContainer">
