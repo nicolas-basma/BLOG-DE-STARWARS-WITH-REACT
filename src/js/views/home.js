@@ -19,12 +19,12 @@ export const Home = () => {
 			</div>
 			<div className="vehiclesContainer">
 				{ Vehicles
-				? Vehicles.map((vehicle) => <VehicleCard  key={vehicle.uid} name={vehicle.name} img={vehicle.uid}/>)
+				? Vehicles.map((vehicle) => <VehicleCard  key={vehicle.uid} name={vehicle.name} id={vehicle.uid}/>)
 			:null }
 			</div>
 			<div className="planetsContainer">
 				{ Planets
-				? Planets.map((planet) => <PlanetsCard key={planet.uid} name={planet.name} img={planet.uid}/>)
+				? Planets.map((planet) => <PlanetsCard key={planet.uid} name={planet.name} id={planet.uid}/>)
 			:null}
 			</div>
     </>

@@ -1,33 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { multipleFetch, getElement } from "./Store";
 
 const Context = createContext();
-
-const multipleFetch = async (listaResult) => {
-  return await Promise.all(
-    listaResult.map((item) =>{
-      return fetch(item.url)
-            .then((res) => res.json())
-    })
-  )
-}
-
-const getPeople = async () => {
-  return fetch("https://www.swapi.tech/api/people/")
-    .then((res) => res.json())
-    .then((res) => res.results)};
-
-  
-const getVehicle = async () => {
-  return fetch("https://www.swapi.tech/api/vehicles/")
-    .then((res) => res.json())
-    .then((res) => res.results)
-};
-
-const getPlanet = async () => {
-  return fetch("https://www.swapi.tech/api/planets/")
-    .then((res) => res.json())
-    .then((res) => res.results)
-};
 
 export const ContextProvider = ({ children }) => {
   
@@ -35,30 +9,38 @@ export const ContextProvider = ({ children }) => {
   const [Characters, setCharacters] = useState([]);
   const [Vehicles, setVehicles] = useState([]);
   const [Planets, setPlanets] = useState([]);
-  const [listaPersonaje, setListaPersonaje] = useState([]);
+  const [listPeople, setListPeople] = useState([]);
+  const [listPlanets, setListPlanets] = useState([]);
+  const [listVehicles, setListVehicles] = useState([]);
 
   useEffect(() => {
-    getPeople()
+    getElement("https://www.swapi.tech/api/people")
       .then((res) => {
         setCharacters(res)
-        return multipleFetch(res);
+        return multipleFetch(res)
       })
-      .then((data) => setListaPersonaje(data))
+      .then((data) => setListPeople(data))
       .catch((err) => console.log(err));
        
-    getVehicle()
-      .then((res) => setVehicles(res))
+    getElement("https://www.swapi.tech/api/vehicles/")
+      .then((res) => {
+        setVehicles(res)
+        return multipleFetch(res)
+      })
+      .then((data) => setListVehicles(data))
       .catch((err) => console.log(err));
 
-    getPlanet()
-      .then((res) => setPlanets(res))
+    getElement("https://www.swapi.tech/api/planets/")
+      .then((res) => {
+        setPlanets(res)
+        return multipleFetch(res)
+      })
+      .then((data) => setListPlanets(data))
       .catch((err) => console.log(err));
   }, []);
-    
-
   return (
     <>
-      <Context.Provider value={{ Characters, Vehicles, Planets, listaPersonaje }}>
+      <Context.Provider value={{ Characters, Vehicles, Planets, listPeople, listPlanets, listVehicles }}>
         {children}
       </Context.Provider>
     </>
