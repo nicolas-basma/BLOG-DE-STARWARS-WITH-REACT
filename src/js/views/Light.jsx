@@ -1,11 +1,11 @@
 import React from 'react';
-import { Navbar } from "../component/Navbar.jsx";
+import { MyNavbar } from '../component/MyNavbar.jsx';
 import { Outlet } from "react-router";
 
 const Light = () => {
 return (
     <>
-    <Navbar/>
+    <MyNavbar/>
     <Outlet/>
     </>
 )

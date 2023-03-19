@@ -5,13 +5,20 @@ const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
   
-  
   const [Characters, setCharacters] = useState([]);
   const [Vehicles, setVehicles] = useState([]);
   const [Planets, setPlanets] = useState([]);
   const [listPeople, setListPeople] = useState([]);
   const [listPlanets, setListPlanets] = useState([]);
   const [listVehicles, setListVehicles] = useState([]);
+  const [favList, setfavList] = useState([]);
+  const [liked, setLiked] = useState(null);
+
+  const handleClick = (id) =>{
+    console.log(id)
+    return setLiked("fas fa-heart")
+
+  }
 
   useEffect(() => {
     getElement("https://www.swapi.tech/api/people")
@@ -40,7 +47,7 @@ export const ContextProvider = ({ children }) => {
   }, []);
   return (
     <>
-      <Context.Provider value={{ Characters, Vehicles, Planets, listPeople, listPlanets, listVehicles }}>
+      <Context.Provider value={{ Characters, Vehicles, Planets, listPeople, listPlanets, listVehicles, liked, handleClick }}>
         {children}
       </Context.Provider>
     </>

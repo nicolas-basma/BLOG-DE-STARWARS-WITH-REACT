@@ -1,29 +1,28 @@
 import React from "react";
 import useStore from "../store/Contexto.jsx";
+import Button from 'react-bootstrap/Button';
+import { Card } from "react-bootstrap";
 
 const CharactersCard = (props) => {
 
+
   const {listPeople} = useStore();
+  const {liked} = useStore();
+  const {handleClick} = useStore();
 
   const [charData] = listPeople ? listPeople.filter((item) =>  item.result.uid == props.id) : null;
   
   return (
-      <div className="card cardSize">
-        <img
-          src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`}
-          className="card-body"
-          alt="..."
-        />
-        <div className="card-body">
-          <h5 className="card-title">{props.name}</h5>
-          <p className="card-text">Gender: {charData ? charData.result.properties.gender : 'loading..'}</p>
-          <p className="card-text">Eyes Color: {charData ? charData.result.properties.eye_color : 'loading..'}</p>
-          <a href={charData ? charData.result.properties.url : 'loading..'} className="btn btn-primary">
-            Learn more!
-          </a>
-          <i className="far fa-heart"></i>
-        </div>
-      </div>
+      <Card>
+        <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`} />
+        <Card.Body>
+          <Card.Title>{props.name}</Card.Title>
+          <Card.Text>Gender: {charData ? charData.result.properties.gender : 'loading..'}</Card.Text>
+          <Card.Text>Color: {charData ? charData.result.properties.eye_color : 'loading..'}</Card.Text>
+          <Button variant="primary" href={charData ? charData.result.properties.url : 'loading..'}>Learn more!</Button>
+          <i className={liked ? liked : "far fa-heart"} onClick={handleClick} id={props._id}></i>
+        </Card.Body>
+      </Card>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useStore from "../store/Contexto.jsx";
 import CharactersCard from "../component/CharactersCard.jsx";
 import VehicleCard from "../component/VehicleCard.jsx";
