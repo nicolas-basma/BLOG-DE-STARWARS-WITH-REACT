@@ -1,23 +1,7 @@
-import react from "react";
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { multipleFetch, getElement } from "./Store";
 
 const Context = createContext();
-
-const getPeople = async () => {
-  return fetch("https://www.swapi.tech/api/people/")
-    .then((res) => res.json())
-    .then((res) => res.results)};
-const getVehicle = async () => {
-  return fetch("https://www.swapi.tech/api/vehicles/")
-    .then((res) => res.json())
-    .then((res) => res.results);
-};
-
-const getPlanet = async () => {
-  return fetch("https://www.swapi.tech/api/planets/")
-    .then((res) => res.json())
-    .then((res) => res.results);
-};
 
 export const ContextProvider = ({ children }) => {
   
@@ -25,46 +9,38 @@ export const ContextProvider = ({ children }) => {
   const [Characters, setCharacters] = useState([]);
   const [Vehicles, setVehicles] = useState([]);
   const [Planets, setPlanets] = useState([]);
-  const [urlCharacter, setUrlCharacter] = useState([]);
-  const [singleCharacter, setSingleCharacter] = useState([]);
-
-  let arrayCaracteristicas = [];
+  const [listPeople, setListPeople] = useState([]);
+  const [listPlanets, setListPlanets] = useState([]);
+  const [listVehicles, setListVehicles] = useState([]);
 
   useEffect(() => {
-    getPeople()
-      .then((res) => setCharacters(res))
+    getElement("https://www.swapi.tech/api/people")
+      .then((res) => {
+        setCharacters(res)
+        return multipleFetch(res)
+      })
+      .then((data) => setListPeople(data))
       .catch((err) => console.log(err));
        
-      
-    getVehicle()
-      .then((res) => setVehicles(res))
+    getElement("https://www.swapi.tech/api/vehicles/")
+      .then((res) => {
+        setVehicles(res)
+        return multipleFetch(res)
+      })
+      .then((data) => setListVehicles(data))
       .catch((err) => console.log(err));
 
-    getPlanet()
-      .then((res) => setPlanets(res))
+    getElement("https://www.swapi.tech/api/planets/")
+      .then((res) => {
+        setPlanets(res)
+        return multipleFetch(res)
+      })
+      .then((data) => setListPlanets(data))
       .catch((err) => console.log(err));
   }, []);
-
-  useEffect(() => {
-    const eachCharacter =  Characters.map((personaje) => personaje.url);
-    setUrlCharacter(eachCharacter);
-  },[Characters])
-
-  useEffect(() => {
-    urlCharacter.map( async (url) => {
-      return fetch(`${url}`)
-        .then((res) => res.json())
-        .then((data) => { arrayCaracteristicas = arrayCaracteristicas.concat(data)
-          console.log(`array`, arrayCaracteristicas)
-        })
-        .then(() => setSingleCharacter(arrayCaracteristicas))
-        .catch((err) => console.log(err))
-      })
-
-  },[urlCharacter])
   return (
     <>
-      <Context.Provider value={{ Characters, Vehicles, Planets, singleCharacter}}>
+      <Context.Provider value={{ Characters, Vehicles, Planets, listPeople, listPlanets, listVehicles }}>
         {children}
       </Context.Provider>
     </>

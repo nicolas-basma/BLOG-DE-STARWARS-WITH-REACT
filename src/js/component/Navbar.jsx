@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <div className="container-fluid">
-    <nav className="navbar navbar-dark bg-dark">
+    <div>
+    <nav className="navbar">
         <a className="navbar-brand" href="#">
           <img
             className="logo"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLFQDCjUKaJeQFoZOv2WdbvdsZO5o1S4gfMbn_8OSEXNb7c3GccxsKmTX5yC9FvOHeJ5M&usqp=CAU"
+            src="https://d3g9pb5nvr3u7.cloudfront.net/sites/5bc3f1ccdce90669ff8b2ef8/-1739758305/256.png"
           />
         </a>
         <div className="btn-group">
