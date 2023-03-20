@@ -18,7 +18,7 @@ export const Navbar = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Action
+            Favorites
           </button>
           <ul className="dropdown-menu dropdown-menu-dark">
             <li>

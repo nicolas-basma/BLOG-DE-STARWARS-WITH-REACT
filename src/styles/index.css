@@ -3,11 +3,12 @@
 */
 .characterContainer, .vehiclesContainer, .planetsContainer{
     display: flex;
+    overflow-y:scroll ;
     flex-direction: row;
 }
 .card{
     width: 18rem;
-    background-color: black;
+    background-color: transparent;
     color: white;
 }
 .navbar{
@@ -18,6 +19,7 @@ h1{
 }
 .mainContainer{
     background-image: url("https://wallpapertag.com/wallpaper/full/a/3/6/146613-full-size-star-wars-star-background-1920x1080.jpg");
+    
 }
 
 .logo{
@@ -33,6 +35,7 @@ h1{
     border-color: aliceblue;
     background-color: black;
     border-radius: 50%;
+    margin: 50px;
 }
 .btn {
     width: 100px;
@@ -56,3 +59,23 @@ h1{
     color: #fff;
     transform: translateY(-7px);
   }
+
+  .icono2{
+    width:1.25rem;
+    height:1.25rem;
+}
+.botonicono2{
+    border-color: aliceblue;
+    background-color: black;
+    border-radius: 50%;
+}
+.botonicono2:hover {
+    background-color: #2edce5;
+    box-shadow: 0px 15px 20px rgba(155, 241, 240, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.profileCard{
+    max-width: 540px;
+}
