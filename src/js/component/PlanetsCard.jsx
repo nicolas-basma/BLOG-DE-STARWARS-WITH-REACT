@@ -17,6 +17,7 @@ const PlanetsCard = (props) => {
 
     <Card>
       <Card.Img
+      variant="top" 
         src={`https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`}
       />
       <Card.Body>
@@ -30,7 +31,8 @@ const PlanetsCard = (props) => {
           {planetsData ? planetsData.result.properties.terrain : "loading.."}
         </Card.Text>
         <Button
-          href={planetsData ? planetsData.result.properties.url : "loading.."}
+            variant="primary"
+            href={planetsData ? planetsData.result.properties.url : "loading.."}
         >
           Learn more!
         </Button>

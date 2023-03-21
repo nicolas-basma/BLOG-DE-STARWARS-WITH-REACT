@@ -15,6 +15,7 @@ const VehicleCard = (props) => {
   return (
     <Card>
       <Card.Img
+       variant="top" 
         src={`https://starwars-visualguide.com/assets/img/vehicles/${props.id}.jpg`}
       />
       <Card.Body>
@@ -30,6 +31,7 @@ const VehicleCard = (props) => {
             : "loading.."}
         </Card.Text>
         <Button
+         variant="primary"
           href={vehiclesData ? vehiclesData.result.properties.url : "loading.."}
         >
           Learn more!

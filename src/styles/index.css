@@ -1,18 +1,16 @@
-/* 
-    General Styles
-*/
 .characterContainer, .vehiclesContainer, .planetsContainer{
     display: flex;
     overflow-y:scroll ;
     flex-direction: row;
 }
 .card{
-    width: 18rem;
+    min-width: 18rem;
     background-color: transparent;
     color: white;
+    margin-inline: 10px;
 }
 .navbar{
-    background-color: black;
+background: #000;
 }
 h1{
     color: white;
@@ -31,16 +29,17 @@ h1{
     width:1.25rem;
     height:1.25rem;
 }
-.botonicono{
+.card-body .botonicono{
     border-color: aliceblue;
     background-color: black;
     border-radius: 50%;
-    margin: 50px;
+    margin: 20px;
+    width: unset;
 }
 .botonicono:hover {
     background-color: #2edce5;
     box-shadow: 0px 15px 20px rgba(155, 241, 240, 0.4);
-    color: #fff;
+    color: #ede5e5;
     transform: translateY(-7px);
 }
 .btn {
@@ -58,24 +57,7 @@ h1{
     transition: all 0.3s ease 0s;
     outline: none;
     }
-/* 
-    General Styles
-*/
-.characterContainer, .vehiclesContainer, .planetsContainer{
-    display: flex;
-    flex-direction: row;
-}
-.cardSize{
-    width: 25rem;
-    margin: 5px;
-}
-.logo{
-    width: 6rem;
-    height: 5rem;
-    object-fit: cover;
-}
   
-
   .btn:hover {
     background-color: #2edce5;
     box-shadow: 0px 15px 20px rgba(155, 241, 240, 0.4);
