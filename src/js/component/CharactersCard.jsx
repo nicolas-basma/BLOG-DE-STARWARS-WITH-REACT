@@ -1,5 +1,9 @@
 import React from "react";
 import useStore from "../store/Contexto.jsx";
+import resistenciaImage from "../../img/resistencia.jpg";
+
+
+import useStore from "../store/Contexto.jsx";
 import Button from 'react-bootstrap/Button';
 import { Card } from "react-bootstrap";
 

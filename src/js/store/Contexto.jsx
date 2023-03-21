@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { multipleFetch, getElement } from "./Store";
+import { multipleFetch, getElement } from "./Store";
 
 const Context = createContext();
 
@@ -11,14 +12,6 @@ export const ContextProvider = ({ children }) => {
   const [listPeople, setListPeople] = useState([]);
   const [listPlanets, setListPlanets] = useState([]);
   const [listVehicles, setListVehicles] = useState([]);
-  const [favList, setfavList] = useState([]);
-  const [liked, setLiked] = useState(null);
-
-  const handleClick = (id) =>{
-    console.log(id)
-    return setLiked("fas fa-heart")
-
-  }
 
   useEffect(() => {
     getElement("https://www.swapi.tech/api/people")
@@ -47,7 +40,7 @@ export const ContextProvider = ({ children }) => {
   }, []);
   return (
     <>
-      <Context.Provider value={{ Characters, Vehicles, Planets, listPeople, listPlanets, listVehicles, liked, handleClick }}>
+      <Context.Provider value={{ Characters, Vehicles, Planets, singleCharacter}}>
         {children}
       </Context.Provider>
     </>

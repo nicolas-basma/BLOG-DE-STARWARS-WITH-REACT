@@ -2,27 +2,23 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import useStore from "../store/Contexto.jsx";
 
+import useStore from "../store/Contexto.jsx";
+import resistenciaImage from "../../img/resistencia.jpg";
+
 
  const PlanetsCard = (props) => {
-
-    const {listPlanets} = useStore();
-    const {liked} = useStore();
-    const {handleClick} = useStore();
-
-    const [dataPlanets] = listPlanets ? listPlanets.filter((item) => item.result.uid == props.id) : null;
-
     return (
 
-    <Card>
-            <Card.Img src={`https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`}/>
-        <Card.Body>
-            <Card.Title>{props.name}</Card.Title>
-            <Card.Text>Population: {dataPlanets ? dataPlanets.result.properties.population : 'loading..'}</Card.Text>
-            <Card.Text>Terrain: {dataPlanets ? dataPlanets.result.properties.terrain : 'loading..'}</Card.Text>
-            <Button href={props.url}>Learn more!</Button>
-            <i className={liked ? liked : "far fa-heart"} onClick={handleClick} id={props.id}></i>
-        </Card.Body>
-    </Card>
+    <div className="card cardSize" >
+            <img src={`https://starwars-visualguide.com/assets/img/planets/${props.img}.jpg`} className="card-img-top" alt="..."/>
+        <div className="card-body">
+            <h5 className="card-title">{props.name}</h5>
+            <p className="card-text">Population: {props.population}</p>
+            <p className="card-text">Terrain: {props.terrain}</p>
+            <a href={props.url} className="btn btn-primary">Learn more!</a>
+            <i class="fa-regular fa-heart"></i>
+        </div>
+    </div>
      );
 }
 
