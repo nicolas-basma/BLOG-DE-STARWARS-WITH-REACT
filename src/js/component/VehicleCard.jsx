@@ -2,9 +2,7 @@ import Button from "react-bootstrap/Button";
 import React from "react";
 import useStore from "../store/Contexto.jsx";
 import resistenciaImage from "../../img/resistencia.jpg";
-
 import { Card } from "react-bootstrap";
-import useStore from "../store/Contexto.jsx";
 
 const VehicleCard = (props) => {
   const { listVehicles } = useStore();
@@ -36,7 +34,9 @@ const VehicleCard = (props) => {
         >
           Learn more!
         </Button>
-        <i className={liked ? liked : "far fa-heart"} onClick={handleClick} id={props.id}></i>
+        <Button className="botonicono">
+                <Card.Img className="icono" src={resistenciaImage}/>
+            </Button>
       </Card.Body>
     </Card>
   );

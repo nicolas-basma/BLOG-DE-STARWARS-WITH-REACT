@@ -1,9 +1,6 @@
 import React from "react";
 import useStore from "../store/Contexto.jsx";
 import resistenciaImage from "../../img/resistencia.jpg";
-
-
-import useStore from "../store/Contexto.jsx";
 import Button from 'react-bootstrap/Button';
 import { Card } from "react-bootstrap";
 
@@ -24,7 +21,9 @@ const CharactersCard = (props) => {
           <Card.Text>Gender: {charData ? charData.result.properties.gender : 'loading..'}</Card.Text>
           <Card.Text>Color: {charData ? charData.result.properties.eye_color : 'loading..'}</Card.Text>
           <Button variant="primary" href={charData ? charData.result.properties.url : 'loading..'}>Learn more!</Button>
-          <i className={liked ? liked : "far fa-heart"} onClick={handleClick} id={props._id}></i>
+          <Button className="botonicono">
+                <Card.Img className="icono" src={resistenciaImage}/>
+            </Button>
         </Card.Body>
       </Card>
   );

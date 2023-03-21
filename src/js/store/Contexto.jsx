@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { multipleFetch, getElement } from "./Store";
-import { multipleFetch, getElement } from "./Store";
 
 const Context = createContext();
 
@@ -40,7 +39,7 @@ export const ContextProvider = ({ children }) => {
   }, []);
   return (
     <>
-      <Context.Provider value={{ Characters, Vehicles, Planets, singleCharacter}}>
+      <Context.Provider value={{ Characters, Vehicles, Planets, listPeople, listPlanets, listVehicles}}>
         {children}
       </Context.Provider>
     </>

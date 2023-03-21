@@ -1,25 +1,49 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import useStore from "../store/Contexto.jsx";
-
-import useStore from "../store/Contexto.jsx";
+import { Card } from "react-bootstrap";
 import resistenciaImage from "../../img/resistencia.jpg";
 
+const PlanetsCard = (props) => {
+  const { listPlanets } = useStore();
+  const { liked } = useStore();
+  const { handleClick } = useStore();
 
- const PlanetsCard = (props) => {
-    return (
+  const [planetsData] = listPlanets
+    ? listPlanets.filter((item) => item.result.uid == props.id)
+    : null;
 
-    <div className="card cardSize" >
-            <img src={`https://starwars-visualguide.com/assets/img/planets/${props.img}.jpg`} className="card-img-top" alt="..."/>
-        <div className="card-body">
-            <h5 className="card-title">{props.name}</h5>
-            <p className="card-text">Population: {props.population}</p>
-            <p className="card-text">Terrain: {props.terrain}</p>
-            <a href={props.url} className="btn btn-primary">Learn more!</a>
-            <i class="fa-regular fa-heart"></i>
-        </div>
-    </div>
-     );
-}
+  return (
+
+    <Card>
+      <Card.Img
+        src={`https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`}
+      />
+      <Card.Body>
+        <Card.Title>{props.name}</Card.Title>
+        <Card.Text>
+          Population:{" "}
+          {planetsData ? planetsData.result.properties.population : "loading.."}
+        </Card.Text>
+        <Card.Text>
+          Terrain:{" "}
+          {planetsData ? planetsData.result.properties.terrain : "loading.."}
+        </Card.Text>
+        <Button
+          href={planetsData ? planetsData.result.properties.url : "loading.."}
+        >
+          Learn more!
+        </Button>
+        <Button className="botonicono">
+          <Card.Img className="icono" src={resistenciaImage} />
+        </Button>
+      </Card.Body>
+    </Card>
+  );
+};
 
 export default PlanetsCard;
+
+<button className="botonicono">
+  <img className="icono" src={resistenciaImage} />
+</button>;

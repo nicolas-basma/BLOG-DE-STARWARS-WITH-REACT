@@ -22,5 +22,5 @@ export const MyNavbar = () => {
         </NavDropdown>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
