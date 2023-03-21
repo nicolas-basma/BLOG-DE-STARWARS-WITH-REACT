@@ -1,5 +1,8 @@
 import React from "react";
 import useStore from "../store/Contexto.jsx";
+import resistenciaImage from "../../img/resistencia.jpg";
+
+
 
 const CharactersCard = (props) => {
   const { listPeople } = useStore();
@@ -37,13 +40,7 @@ const CharactersCard = (props) => {
               <button className="botonicono">
                 <img
                   className="icono"
-                  src="https://fortnite.gg/img/items/7412/locker.jpg?1"
-                />
-              </button>
-              <button className="botonicono2">
-                <img
-                  className="icono2"
-                  src="../img/resistencia.png"
+                  src= {resistenciaImage}
                 />
               </button>
             </div>
