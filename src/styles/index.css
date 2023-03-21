@@ -6,9 +6,16 @@
     overflow-y:scroll ;
     flex-direction: row;
 }
-.cardSize{
-    width: 25rem;
-    margin: 5px;
+.card{
+    width: 18rem;
+    background-color: transparent;
+    color: white;
+}
+.navbar{
+    background-color: black;
+}
+h1{
+    color: white;
 }
 .mainContainer{
     background-image: url("https://wallpapertag.com/wallpaper/full/a/3/6/146613-full-size-star-wars-star-background-1920x1080.jpg");
@@ -51,7 +58,24 @@
     transition: all 0.3s ease 0s;
     outline: none;
     }
+/* 
+    General Styles
+*/
+.characterContainer, .vehiclesContainer, .planetsContainer{
+    display: flex;
+    flex-direction: row;
+}
+.cardSize{
+    width: 25rem;
+    margin: 5px;
+}
+.logo{
+    width: 6rem;
+    height: 5rem;
+    object-fit: cover;
+}
   
+
   .btn:hover {
     background-color: #2edce5;
     box-shadow: 0px 15px 20px rgba(155, 241, 240, 0.4);
