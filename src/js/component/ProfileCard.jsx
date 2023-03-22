@@ -5,8 +5,6 @@ import useStore from "../store/Contexto.jsx";
 const ProfileCard = () => {
 
   const params = useParams();
-  console.log(params)
-
   const {listPeople} = useStore();
 
   const [data] = listPeople.length ? listPeople.filter((item) => item.result.uid == params.id) : [];

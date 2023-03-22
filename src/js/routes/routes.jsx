@@ -3,6 +3,9 @@ import React from "react";
 import { Home } from "../views/home";
 import Light from "../views/Light.jsx";
 import ProfileCard from "../component/ProfileCard.jsx";
+import ProfileVehicle from "../component/ProfileVehicle";
+import ProfilePlanets from "../component/ProfilePlanets";
+
 
 export const router = createBrowserRouter([
 	{
@@ -17,7 +20,17 @@ export const router = createBrowserRouter([
 	{
 		path: '/characters/:id',
 		element: <ProfileCard/>
-	}]
+	},
+	{
+		path: '/vehicles/:id',
+		element: <ProfileVehicle/>
+	},
+	{
+		path: '/planets/:id',
+		element: <ProfilePlanets/>
+	}
+
+]
 	},
 ])
 
