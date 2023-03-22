@@ -3,14 +3,21 @@ import Button from "react-bootstrap/Button";
 import useStore from "../store/Contexto.jsx";
 import { Card } from "react-bootstrap";
 import resistenciaImage from "../../img/resistencia.jpg";
+import { useNavigate } from "react-router";
 
 const PlanetsCard = (props) => {
   const { listPlanets } = useStore();
   const { handleClick } = useStore();
+  const navigate = useNavigate();
+
 
   const [planetsData] = listPlanets
     ? listPlanets.filter((item) => item.result.uid == props.id)
     : null;
+
+    const handleNavigatePlanet = () => {
+      navigate(`/planets/${props.id}`);
+    }
 
   return (
 
@@ -31,7 +38,7 @@ const PlanetsCard = (props) => {
         </Card.Text>
         <Button
             variant="primary"
-            href={planetsData ? planetsData.result.properties.url : "loading.."}
+            onClick={handleNavigatePlanet} 
         >
           Learn more!
         </Button>

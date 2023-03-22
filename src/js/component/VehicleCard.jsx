@@ -3,10 +3,18 @@ import React from "react";
 import useStore from "../store/Contexto.jsx";
 import resistenciaImage from "../../img/resistencia.jpg";
 import { Card } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 const VehicleCard = (props) => {
   const { listVehicles } = useStore();
   const {handleClick} = useStore();
+
+  const navigate = useNavigate();
+
+
+  const handleNavigateVehicle = () => {
+    navigate(`/vehicles/${props.id}`);
+  }
 
   const [vehiclesData] = listVehicles
     ? listVehicles.filter((item) => item.result.uid == props.id)
@@ -29,12 +37,7 @@ const VehicleCard = (props) => {
             ? vehiclesData.result.properties.vehicle_class
             : "loading.."}
         </Card.Text>
-        <Button
-         variant="primary"
-          href={vehiclesData ? vehiclesData.result.properties.url : "loading.."}
-        >
-          Learn more!
-        </Button>
+        <Button variant="primary" onClick={handleNavigateVehicle} >Learn more!</Button>
         <Button className="botonicono" onClick={()=> handleClick(props)}>
                 <Card.Img className="icono" src={resistenciaImage}/>
             </Button>

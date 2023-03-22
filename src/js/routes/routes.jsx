@@ -3,8 +3,8 @@ import React from "react";
 import { Home } from "../views/home";
 import Light from "../views/Light.jsx";
 import ProfileCard from "../component/ProfileCard.jsx";
-import ProfileVehicle from "../component/ProfileVehicle";
-import ProfilePlanets from "../component/ProfilePlanets";
+import ProfileVehicle from "../component/ProfileVehicle.jsx";
+import ProfilePlanets from "../component/ProfilePlanets.jsx";
 
 
 export const router = createBrowserRouter([

@@ -3,9 +3,9 @@ import { useParams } from "react-router";
 import useStore from "../store/Contexto.jsx";
 
 const ProfileVehicle = () => {
-    const params = useParams();
-    console.log(params)
+    
   
+    const params = useParams();
     const {listVehicle} = useStore();
   
     const [data] = listVehicle.length ? listVehicle.filter((item) => item.result.uid == params.id) : [];

@@ -10,7 +10,7 @@ const CharactersCard = (props) => {
     const navigate = useNavigate();
 
 
-    const handleNavigate = () => {
+    const handleNavigateChars = () => {
       navigate(`/characters/${props.id}`);
     }
 
@@ -26,7 +26,7 @@ const CharactersCard = (props) => {
           <Card.Title>{props.name}</Card.Title>
           <Card.Text>Gender: {charData ? charData.result.properties.gender : 'loading..'}</Card.Text>
           <Card.Text>Color: {charData ? charData.result.properties.eye_color : 'loading..'}</Card.Text>
-          <Button variant="primary" onClick={handleNavigate} >Learn more!</Button>
+          <Button variant="primary" onClick={handleNavigateChars} >Learn more!</Button>
           <Button className="botonicono" onClick={()=>handleClick(props)}>
                 <Card.Img className="icono" src={resistenciaImage}/>
             </Button>
