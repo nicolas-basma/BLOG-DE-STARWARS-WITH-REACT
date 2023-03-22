@@ -11,7 +11,8 @@ export const ContextProvider = ({ children }) => {
   const [listPeople, setListPeople] = useState([]);
   const [listPlanets, setListPlanets] = useState([]);
   const [listVehicles, setListVehicles] = useState([]);
-
+  const [favorite, setFavorite] = useState([]);
+  
   useEffect(() => {
     getElement("https://www.swapi.tech/api/people")
       .then((res) => {
@@ -37,9 +38,19 @@ export const ContextProvider = ({ children }) => {
       .then((data) => setListPlanets(data))
       .catch((err) => console.log(err));
   }, []);
+
+  const handleClick = (value) => {
+    
+    let selection = favorite.concat([value]);
+    setFavorite(selection);
+    console.log(`favorite array`,favorite);
+  }
+
+
+
   return (
     <>
-      <Context.Provider value={{ Characters, Vehicles, Planets, listPeople, listPlanets, listVehicles}}>
+      <Context.Provider value={{ Characters, Vehicles, Planets, listPeople, listPlanets, listVehicles, handleClick, favorite}}>
         {children}
       </Context.Provider>
     </>
@@ -51,3 +62,6 @@ const useStore = () => {
 };
 
 export default useStore;
+
+
+

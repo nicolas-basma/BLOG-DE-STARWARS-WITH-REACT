@@ -6,7 +6,6 @@ import { Card } from "react-bootstrap";
 
 const VehicleCard = (props) => {
   const { listVehicles } = useStore();
-  const {liked} = useStore();
   const {handleClick} = useStore();
 
   const [vehiclesData] = listVehicles
@@ -36,7 +35,7 @@ const VehicleCard = (props) => {
         >
           Learn more!
         </Button>
-        <Button className="botonicono">
+        <Button className="botonicono" onClick={()=> handleClick(props)}>
                 <Card.Img className="icono" src={resistenciaImage}/>
             </Button>
       </Card.Body>

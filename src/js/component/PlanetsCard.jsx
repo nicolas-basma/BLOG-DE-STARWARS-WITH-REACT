@@ -6,7 +6,6 @@ import resistenciaImage from "../../img/resistencia.jpg";
 
 const PlanetsCard = (props) => {
   const { listPlanets } = useStore();
-  const { liked } = useStore();
   const { handleClick } = useStore();
 
   const [planetsData] = listPlanets
@@ -36,7 +35,7 @@ const PlanetsCard = (props) => {
         >
           Learn more!
         </Button>
-        <Button className="botonicono">
+        <Button className="botonicono" onClick={()=>handleClick(props)}>
           <Card.Img className="icono" src={resistenciaImage} />
         </Button>
       </Card.Body>
