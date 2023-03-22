@@ -1,9 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import { Home } from "../views/home";
-import { Bla } from "../component/IndividualCharacter.jsx";
 import Light from "../views/Light.jsx";
-import { element } from "prop-types";
+import ProfileCard from "../component/ProfileCard.jsx";
 
 export const router = createBrowserRouter([
 	{
@@ -17,9 +16,8 @@ export const router = createBrowserRouter([
 	},
 	{
 		path: '/characters/:id',
-		element: <Bla/>
+		element: <ProfileCard/>
 	}]
 	},
 ])
-
 

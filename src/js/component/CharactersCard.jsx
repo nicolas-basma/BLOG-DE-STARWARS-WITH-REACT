@@ -7,12 +7,11 @@ import { useNavigate } from "react-router";
 
 const CharactersCard = (props) => {
 
-
     const navigate = useNavigate();
 
 
     const handleNavigate = () => {
-      navigate(`/characters/${uid}`);
+      navigate(`/characters/${props.id}`);
     }
 
   const {listPeople} = useStore();
