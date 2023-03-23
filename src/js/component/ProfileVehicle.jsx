@@ -8,7 +8,7 @@ const ProfileVehicle = () => {
     const params = useParams();
     const {listVehicle} = useStore();
   
-    const [data] = listVehicle.length ? listVehicle.filter((item) => item.result.uid == params.id) : [];
+    const [data] = listVehicle ? listVehicle.filter((item) => item.result.uid == params.id) : [];
     console.log(`data`,data)
     return (
   

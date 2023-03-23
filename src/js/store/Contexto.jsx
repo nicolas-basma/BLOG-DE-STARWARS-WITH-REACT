@@ -43,7 +43,6 @@ export const ContextProvider = ({ children }) => {
     
     let selection = favorite.concat([value]);
     setFavorite(selection);
-    console.log(`favorite array`,favorite);
   }
 
 

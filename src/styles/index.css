@@ -75,3 +75,7 @@ h1{
     max-width: 540px;
     background-image: url("https://wallpapertag.com/wallpaper/full/a/3/6/146613-full-size-star-wars-star-background-1920x1080.jpg");
 }
+
+i{
+    justify-content: end;
+}

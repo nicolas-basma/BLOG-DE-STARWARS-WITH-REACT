@@ -14,7 +14,12 @@ export const MyNavbar = () => {
     Navigate('/');
  }
 
-  let setFavorite = favorite.length ? favorite.map((item) => <NavDropdown.Item key={item.name}>{item.name}</NavDropdown.Item>) : null;
+ const handleDelete = () => {
+  setFavorite = setFavorite.filter((item)=> console.log(item));
+  console.log(`setfavorite`,setFavorite)
+ }
+
+  let setFavorite = favorite.length ? favorite.map((item) => <NavDropdown.Item key={item.name}>{item.name}<i className="fas fa-times" name={item.name} onClick={handleDelete}></i></NavDropdown.Item>) : null;
 
   return (
     <Navbar className="navbar">
