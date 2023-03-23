@@ -16,9 +16,6 @@ const VehicleCard = (props) => {
     navigate(`/vehicles/${props.id}`);
   }
 
-  const [vehiclesData] = listVehicles
-    ? listVehicles.filter((item) => item.result.uid == props.id)
-    : null;
   return (
     <Card>
       <Card.Img
@@ -28,17 +25,13 @@ const VehicleCard = (props) => {
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>
         <Card.Text>
-          Model:{" "}
-          {vehiclesData ? vehiclesData.result.properties.model : "loading.."}
+          Model:{props.model}
         </Card.Text>
         <Card.Text>
-          Vehicle class:{" "}
-          {vehiclesData
-            ? vehiclesData.result.properties.vehicle_class
-            : "loading.."}
+          Vehicle class:{props.vehicleClass}
         </Card.Text>
         <Button variant="primary" onClick={handleNavigateVehicle} >Learn more!</Button>
-        <Button className="botonicono" onClick={()=> handleClick(props)}>
+        <Button className="botonicono" onClick={()=> handleClick(props, 'vehicles')}>
                 <Card.Img className="icono" src={resistenciaImage}/>
             </Button>
       </Card.Body>

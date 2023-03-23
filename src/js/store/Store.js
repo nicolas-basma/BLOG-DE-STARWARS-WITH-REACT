@@ -8,6 +8,8 @@ export const multipleFetch = async (listaResult) => {
       )
     }
 
+
+
 export const getElement = async (url) => {
   return fetch(url)
     .then((res) => res.json())

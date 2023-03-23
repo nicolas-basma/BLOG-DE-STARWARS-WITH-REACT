@@ -9,7 +9,7 @@ const ProfileVehicle = () => {
     const {listVehicle} = useStore();
   
     const [data] = listVehicle ? listVehicle.filter((item) => item.result.uid == params.id) : [];
-    console.log(`data`,data)
+
     return (
   
         <div className="card mb-3 profileCard">

@@ -8,7 +8,7 @@ const ProfileCard = () => {
   const {listPeople} = useStore();
 
   const [data] = listPeople.length ? listPeople.filter((item) => item.result.uid == params.id) : [];
-  console.log(`data`,data)
+
   
 
   return (

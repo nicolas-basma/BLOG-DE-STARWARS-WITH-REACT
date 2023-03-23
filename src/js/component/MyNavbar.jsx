@@ -3,23 +3,21 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import useStore from "../store/Contexto.jsx";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 export const MyNavbar = () => {
 
   const {favorite} = useStore();
+  const {handleDelete} = useStore();
   const Navigate = useNavigate();
 
  const handleHome = () => {
     Navigate('/');
  }
 
- const handleDelete = () => {
-  setFavorite = setFavorite.filter((item)=> console.log(item));
-  console.log(`setfavorite`,setFavorite)
- }
+  let setFavorite = favorite.length ? favorite.map((item) => <NavDropdown.Item key={item.name}>{item.name}<i className="fas fa-times" onClick={()=>handleDelete(item.id)}></i></NavDropdown.Item>) : null;
 
-  let setFavorite = favorite.length ? favorite.map((item) => <NavDropdown.Item key={item.name}>{item.name}<i className="fas fa-times" name={item.name} onClick={handleDelete}></i></NavDropdown.Item>) : null;
+
 
   return (
     <Navbar className="navbar">

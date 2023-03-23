@@ -14,20 +14,17 @@ const CharactersCard = (props) => {
       navigate(`/characters/${props.id}`);
     }
 
-  const {listPeople} = useStore();
   const {handleClick} = useStore();
-
-  const [charData] = listPeople ? listPeople.filter((item) =>  item.result.uid == props.id) : null;
   
   return (
       <Card>
         <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`} />
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
-          <Card.Text>Gender: {charData ? charData.result.properties.gender : 'loading..'}</Card.Text>
-          <Card.Text>Color: {charData ? charData.result.properties.eye_color : 'loading..'}</Card.Text>
+          <Card.Text>Gender: {props.gender}</Card.Text>
+          <Card.Text>Color: {props.eyeColor}</Card.Text>
           <Button variant="primary" onClick={handleNavigateChars} >Learn more!</Button>
-          <Button className="botonicono" onClick={()=>handleClick(props)}>
+          <Button className="botonicono" onClick={()=>handleClick(props, 'character')}>
                 <Card.Img className="icono" src={resistenciaImage}/>
             </Button>
         </Card.Body>

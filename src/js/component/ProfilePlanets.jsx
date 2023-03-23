@@ -4,12 +4,11 @@ import useStore from "../store/Contexto.jsx";
 
 const ProfilePlanets= ()=>{
     const params = useParams();
-    console.log(params)
   
     const {listPlanets} = useStore();
   
     const [data] = listPlanets.length ? listPlanets.filter((item) => item.result.uid == params.id) : [];
-    console.log(`data`,data)
+
     
   
     return (

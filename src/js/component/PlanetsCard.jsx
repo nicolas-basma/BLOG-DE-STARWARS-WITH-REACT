@@ -11,10 +11,6 @@ const PlanetsCard = (props) => {
   const navigate = useNavigate();
 
 
-  const [planetsData] = listPlanets
-    ? listPlanets.filter((item) => item.result.uid == props.id)
-    : null;
-
     const handleNavigatePlanet = () => {
       navigate(`/planets/${props.id}`);
     }
@@ -29,12 +25,10 @@ const PlanetsCard = (props) => {
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>
         <Card.Text>
-          Population:{" "}
-          {planetsData ? planetsData.result.properties.population : "loading.."}
+          Population:{props.population}
         </Card.Text>
         <Card.Text>
-          Terrain:{" "}
-          {planetsData ? planetsData.result.properties.terrain : "loading.."}
+          Terrain:{props.terrain}
         </Card.Text>
         <Button
             variant="primary"
@@ -42,7 +36,7 @@ const PlanetsCard = (props) => {
         >
           Learn more!
         </Button>
-        <Button className="botonicono" onClick={()=>handleClick(props)}>
+        <Button className="botonicono" onClick={()=>handleClick(props, 'planets')}>
           <Card.Img className="icono" src={resistenciaImage} />
         </Button>
       </Card.Body>
