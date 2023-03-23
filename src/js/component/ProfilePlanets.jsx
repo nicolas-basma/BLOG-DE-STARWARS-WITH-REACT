@@ -13,7 +13,7 @@ const ProfilePlanets= ()=>{
   
     return (
     
-        <div className="card mb-3 profileCard">
+        <div className="profileCard2">
           <div className="row g-0">
             <div className="col-md-4">
               <img
