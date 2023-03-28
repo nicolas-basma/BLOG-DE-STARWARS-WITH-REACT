@@ -26,9 +26,12 @@ const ProfileCard = () => {
             <div className="card-body">
               <h5 className="card-title">{data ? data?.result.properties.name : 'loading..'}</h5>
               <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+               For reasons only fully understood by themselves, researchers at the École Polytechnique Fédérale de Lausanne (EPFL) 
+               in Switzerland plotted the most important characters on a bizarre map that shows the connections between the characters.
+               The researchers chose 7,563 characters to include on the map, 1,367 of which are Jedi and 724 Sith.
+               Despite the movies and related stories being set in a galaxy far, far away, almost 80 per cent of the major characters are human.
+               The characters are spread among 640 different communities on 294 planets, 
+               and despite the high visibility of aliens in the Star Wars universe, it turns out almost 80 percent of the major players are actually human.
               </p>
               <p className="individualDetails">
                 Gender:{" "}

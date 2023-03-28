@@ -2,9 +2,12 @@
     display: flex;
     overflow-y:scroll ;
     flex-direction: row;
+    height: 30rem; 
+    
 }
 .card{
-    min-width: 18rem;
+    min-width: 10rem;
+    min-height: 5rem;
     background-color: transparent;
     color: white;
     margin: 10px;
@@ -54,6 +57,7 @@ body{
     border-radius: 50%;
     margin: 20px;
     width: unset;
+    
 }
 .card-body .botoniconoLiked{
     border-color: aliceblue;
@@ -69,9 +73,9 @@ body{
     transform: translateY(-7px);
 }
 .btn {
-    width: 100px;
+    width: 70px;
     height: 45px;
-    font-size: 11px;
+    font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;

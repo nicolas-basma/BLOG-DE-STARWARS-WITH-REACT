@@ -24,8 +24,8 @@ const CharactersCard = (props) => {
         <Card.Img variant="top" src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`} />
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
-          <Card.Text>Gender: {props.gender}</Card.Text>
-          <Card.Text>Color: {props.eyeColor}</Card.Text>
+          <Card.Text className="cardText">Gender: {props.gender}</Card.Text>
+          <Card.Text className="cardText">Color: {props.eyeColor}</Card.Text>
           <Button variant="primary" onClick={handleNavigateChars} >Learn more!</Button>
           <Button className={btnLiked ? "botoniconoLiked" : 'botonicono'} onClick={()=>handleClick(props, 'characters')}>
                 <Card.Img className="icono" src={resistenciaImage}/>
