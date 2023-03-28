@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router";
 import { multipleFetch, getElement } from "./Store";
 
 const Context = createContext();
@@ -8,6 +9,7 @@ export const ContextProvider = ({ children }) => {
   const [listPlanets, setListPlanets] = useState([]);
   const [listVehicles, setListVehicles] = useState([]);
   const [favorite, setFavorite] = useState([]);
+  
 
   useEffect(() => {
     const localStoreCharacters = localStorage.getItem("characters");
@@ -66,7 +68,7 @@ export const ContextProvider = ({ children }) => {
 
   const handleClick = (value, type) => {
     const favoriteObject = {
-      id: type + value.id,
+      id: type + '/' + value.id,
       name: value.name,
     };
     let favoriteExist = favorite.find((item) => item.id === favoriteObject.id);

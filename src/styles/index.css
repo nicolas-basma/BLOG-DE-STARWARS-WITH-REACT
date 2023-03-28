@@ -54,9 +54,16 @@ body{
     margin: 20px;
     width: unset;
 }
+.card-body .botoniconoLiked{
+    border-color: aliceblue;
+    background-color: rgb(186, 36, 36);
+    border-radius: 50%;
+    margin: 20px;
+    width: unset;
+}
 .botonicono:hover {
     background-color: #2edce5;
-    box-shadow: 0px 15px 20px rgba(155, 241, 240, 0.4);
+    /* box-shadow: 0px 15px 20px rgba(155, 241, 240, 0.4); */
     color: #ede5e5;
     transform: translateY(-7px);
 }

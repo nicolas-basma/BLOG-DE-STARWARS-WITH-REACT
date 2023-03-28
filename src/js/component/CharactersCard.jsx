@@ -8,6 +8,9 @@ import { useNavigate } from "react-router";
 const CharactersCard = (props) => {
 
     const navigate = useNavigate();
+    const {favorite} = useStore();
+
+    const btnLiked = favorite.find((item) => item.name === props.name)
 
 
     const handleNavigateChars = () => {
@@ -24,7 +27,7 @@ const CharactersCard = (props) => {
           <Card.Text>Gender: {props.gender}</Card.Text>
           <Card.Text>Color: {props.eyeColor}</Card.Text>
           <Button variant="primary" onClick={handleNavigateChars} >Learn more!</Button>
-          <Button className="botonicono" onClick={()=>handleClick(props, 'character')}>
+          <Button className={btnLiked ? "botoniconoLiked" : 'botonicono'} onClick={()=>handleClick(props, 'characters')}>
                 <Card.Img className="icono" src={resistenciaImage}/>
             </Button>
         </Card.Body>

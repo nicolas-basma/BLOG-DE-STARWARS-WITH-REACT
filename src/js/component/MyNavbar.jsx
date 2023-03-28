@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import useStore from "../store/Contexto.jsx";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export const MyNavbar = () => {
 
@@ -15,7 +16,7 @@ export const MyNavbar = () => {
     Navigate('/');
  }
 
-  let setFavorite = favorite.length ? favorite.map((item) => <NavDropdown.Item key={item.name}>{item.name}<i className="fas fa-times" onClick={()=>handleDelete(item.id)}></i></NavDropdown.Item>) : null;
+  let setFavorite = favorite.length ? favorite.map((item) => <NavDropdown.ItemText key={item.name}><Link to={`${item.id}`} >{item.name}</Link><i className="fas fa-times" onClick={()=>handleDelete(item.id)}></i></NavDropdown.ItemText>) : <div>Nothing to show</div>;
 
 
 
