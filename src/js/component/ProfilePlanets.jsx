@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import useStore from "../store/Contexto.jsx";
+import { imgTatooine } from "../store/Store.js";
 
 const ProfilePlanets= ()=>{
     const params = useParams();
@@ -9,7 +10,8 @@ const ProfilePlanets= ()=>{
   
     const [data] = listPlanets.length ? listPlanets.filter((item) => item.result.uid == params.id) : [];
 
-    
+    const imgTatoo = data?.result.properties.name == 'Tatooine';
+
   
     return (
     
@@ -17,7 +19,7 @@ const ProfilePlanets= ()=>{
           <div className="row g-0">
             <div className="col-md-4">
               <img
-                src={`https://starwars-visualguide.com/assets/img/planets/${params.id}.jpg`}
+                src={ imgTatoo ? imgTatooine : `https://starwars-visualguide.com/assets/img/planets/${params.id}.jpg`}
                 className="img-fluid rounded-start"
                 alt="..."
               />
