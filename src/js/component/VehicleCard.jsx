@@ -6,10 +6,11 @@ import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
 const VehicleCard = (props) => {
-  const { listVehicles } = useStore();
-  const {handleClick} = useStore();
+  const {handleClick, favorite} = useStore();
 
   const navigate = useNavigate();
+
+  const btnLiked = favorite.find((item) => item.name === props.name)
 
 
   const handleNavigateVehicle = () => {
@@ -31,7 +32,7 @@ const VehicleCard = (props) => {
           Vehicle class:{props.vehicleClass}
         </Card.Text>
         <Button variant="primary" onClick={handleNavigateVehicle} >Learn more!</Button>
-        <Button className="botonicono" onClick={()=> handleClick(props, 'vehicles')}>
+        <Button className={ btnLiked ? 'botoniconoLiked' : "botonicono" } onClick={()=> handleClick(props, 'vehicles')}>
                 <Card.Img className="icono" src={resistenciaImage}/>
             </Button>
       </Card.Body>

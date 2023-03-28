@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router";
 import { multipleFetch, getElement } from "./Store";
 
 const Context = createContext();

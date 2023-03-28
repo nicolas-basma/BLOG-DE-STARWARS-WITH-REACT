@@ -7,18 +7,24 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 export const MyNavbar = () => {
-
-  const {favorite} = useStore();
-  const {handleDelete} = useStore();
+  const { favorite } = useStore();
+  const { handleDelete } = useStore();
   const Navigate = useNavigate();
 
- const handleHome = () => {
-    Navigate('/');
- }
+  const handleHome = () => {
+    Navigate("/");
+  };
 
-  let setFavorite = favorite.length ? favorite.map((item) => <NavDropdown.ItemText key={item.name}><Link to={`${item.id}`} >{item.name}</Link><i className="fas fa-times" onClick={()=>handleDelete(item.id)}></i></NavDropdown.ItemText>) : <div>Nothing to show</div>;
-
-
+  let setFavorite = favorite.length ? (
+    favorite.map((item) => (
+      <NavDropdown.ItemText key={item.name}>
+        <Link to={`${item.id}`}>{item.name}</Link>
+        <i className="fas fa-times" onClick={() => handleDelete(item.id)}></i>
+      </NavDropdown.ItemText>
+    ))
+  ) : (
+    <div>Nothing to show</div>
+  );
 
   return (
     <Navbar className="navbar">
@@ -31,9 +37,9 @@ export const MyNavbar = () => {
           />
         </Navbar.Brand>
         <NavDropdown title="Favorites" id="basic-nav-dropdown">
-         {setFavorite}
+          {setFavorite}
         </NavDropdown>
       </Container>
     </Navbar>
-  )
-}
+  );
+};

@@ -122,3 +122,7 @@ i{
     color: #ede5e5;
     transform: translateY(-7px);
 }
+
+.imgPlanets{
+    background-image: url('http://cdn.playbuzz.com/cdn/16c54ffe-46be-49f9-849e-cfbbada9632c/d0e004ea-bcf5-46ff-8411-77ecda58b2de.jpg')
+}
