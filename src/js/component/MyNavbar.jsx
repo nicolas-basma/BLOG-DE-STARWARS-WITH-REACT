@@ -5,6 +5,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import useStore from "../store/Contexto.jsx";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import UseAnimations from 'react-useanimations';
+import trash from "react-useanimations/lib/trash";
 
 export const MyNavbar = () => {
   const { favorite } = useStore();
@@ -17,9 +19,11 @@ export const MyNavbar = () => {
 
   let setFavorite = favorite.length ? (
     favorite.map((item) => (
-      <NavDropdown.ItemText key={item.name}>
+      <NavDropdown.ItemText key={item.name}><div className="itemNavbar">
         <Link to={`${item.id}`}>{item.name}</Link>
-        <i className="fas fa-times" onClick={() => handleDelete(item.id)}></i>
+        <UseAnimations animation={trash} onClick={()=>handleDelete(item.id)}/>
+        {/* <i className="fas fa-times" onClick={() => handleDelete(item.id)}></i> */}
+        </div>
       </NavDropdown.ItemText>
     ))
   ) : (
