@@ -28,6 +28,9 @@
     0px 8px 16px rgba(0,255,255,0.5);
 }
 
+.card-body{
+    padding: none;
+}
 
 
 .navbar{
@@ -150,7 +153,7 @@ body{
 }
 
 .a{
-    color: #000;
+    color: #d6c6c6;
 }
 
 .emptyNavbar{
