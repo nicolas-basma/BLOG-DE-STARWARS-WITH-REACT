@@ -22,12 +22,11 @@ export const MyNavbar = () => {
       <NavDropdown.ItemText key={item.name}><div className="itemNavbar">
         <Link to={`${item.id}`}>{item.name}</Link>
         <UseAnimations animation={trash} onClick={()=>handleDelete(item.id)}/>
-        {/* <i className="fas fa-times" onClick={() => handleDelete(item.id)}></i> */}
         </div>
       </NavDropdown.ItemText>
     ))
   ) : (
-    <div>Nothing to show</div>
+    <div className="emptyNavbar">Nothing to show</div>
   );
 
   return (
