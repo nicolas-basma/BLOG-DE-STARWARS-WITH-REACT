@@ -17,6 +17,9 @@ export const MyNavbar = () => {
     Navigate("/");
   };
 
+  let favNumber = favorite.length
+  console.log(favNumber)
+
   let setFavorite = favorite.length ? (
     favorite.map((item) => (
       <NavDropdown.ItemText key={item.name}><div className="itemNavbar">
@@ -32,14 +35,14 @@ export const MyNavbar = () => {
   return (
     <Navbar className="navbar">
       <Container>
-        <Navbar.Brand href="#">
+        <Navbar.Brand>
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLFQDCjUKaJeQFoZOv2WdbvdsZO5o1S4gfMbn_8OSEXNb7c3GccxsKmTX5yC9FvOHeJ5M&usqp=CAU"
             className="logo"
             onClick={handleHome}
           />
         </Navbar.Brand>
-        <NavDropdown title="Favorites" id="basic-nav-dropdown">
+        <NavDropdown title={`Favorites (${favNumber})`} id="basic-nav-dropdown">
           {setFavorite}
         </NavDropdown>
       </Container>
